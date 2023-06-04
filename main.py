@@ -21,3 +21,17 @@ calisan3 = Calisan("36789012345", "Elif", "Eren", 35, "Erkek", "Türk", "inşaat
 print(calisan1)
 print(calisan2)
 print(calisan3)
+mavi_yaka1 = MaviYaka("44545678910", "Bengü", "Murat", 30, "Erkek", "Türk", "teknoloji", 3, 12000, 0.2)
+mavi_yaka2 = MaviYaka("55565432100", "Yavuz", "Kaya", 27, "Kadın", "Türk", "muhasebe", 2, 18000, 0.5)
+mavi_yaka3 = MaviYaka("76789012342", "Alp", "Yıldız", 32, "Erkek", "Türk", "inşaat", 12, 25000, 0.3)
+print(mavi_yaka1)
+print(mavi_yaka2)
+print(mavi_yaka3)
+
+beyaz_yaka1 = BeyazYaka("89945678910", "Merve", "Yılmaz", 32, "Erkek", "Türk", "teknoloji", 12, 12000, 500)
+beyaz_yaka2 = BeyazYaka("98765992100", "Mehmet", "Şen", 45, "Kadın", "Türk", "muhasebe", 5, 18000, 1500)
+beyaz_yaka3 = BeyazYaka("16709012305", "Zeynep", "Demir", 35, "Erkek", "Türk", "inşaat", 1, 25000, 1000)
+
+print(beyaz_yaka1)
+print(beyaz_yaka2)
+print(beyaz_yaka3)

@@ -1,4 +1,3 @@
-
 from Insan import Insan
 
 class Calisan(Insan):
@@ -27,16 +26,22 @@ class Calisan(Insan):
         self.__maas = maas
 
     def zam_hakki(self):
-        if self.__tecrube < 2:
-            return 0
-        elif 2 <= self.__tecrube <= 4 and self.__maas < 15000:
-            return self.__maas % self.__tecrube
-        elif self.__tecrube > 4 and self.__maas < 25000:
-            return (self.__maas % self.__tecrube) / 2
-        else:
-            return self.__maas
+        try:
+            if self.__tecrube < 2:  # tecrube 2 den küçükse
+                return 0
+            elif 2 <= self.__tecrube <= 4 and self.__maas < 15000:  # tecrube 4 den küçükse ve maaş 15000 den küçükse aşağıdaki fonksiyonu döndür
+                return self.__maas % self.__tecrube / 100
+            elif self.__tecrube > 4 and self.__maas < 25000:  # tecrube 4 den büyükse ve maas 25000 den küçükse aşağıdaki fonksiyonu döndür
+                return (self.__maas % self.__tecrube) / 200
+            else:
+                return 0
+        except Exception as e:  # hata oluşma durumunda hatayı gösterme
+            print("Hata-", str(e))
+    def get_yeni_maas(self):
+        return self.__maas + self.zam_hakki()
 
     def __str__(self):
-        return super().__str__() + f"Tecrübe: {self.__tecrube} ay\nYeni Maaş: {self.zam_hakki()}\n"
+        yeni_maas = self.__maas + self.zam_hakki()  # yeni maas hesaplama
+        return f"Ad: {self.get_ad()}\nSoyad:{self.get_soyad()}\nTecrübe:{self.__tecrube} ay\nYeni Maaş:{yeni_maas} TL"
 
 

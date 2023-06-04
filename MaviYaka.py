@@ -12,17 +12,24 @@ class MaviYaka(Calisan):
         self.__yipranma_payi = yipranma_payi
 
     def zam_hakki(self):
-        if self.get_tecrube() < 2:
-            return self.__yipranma_payi * 10
-        elif 2 <= self.get_tecrube() <= 4 and self.get_maas() < 15000:
-            return (self.get_maas() % self.get_tecrube()) / 2 + (self.__yipranma_payi * 10)
-        elif self.get_tecrube() > 4 and self.get_maas() < 25000:
-            return (self.get_maas() % self.get_tecrube()) / 3 + (self.__yipranma_payi * 10)
-        else:
-            return self.get_maas()
+        try:
+            if self.get_tecrube() < 2:
+                return self.__yipranma_payi * 10
+            elif 2 <= self.get_tecrube() <= 4 and self.get_maas() < 15000:
+                return (self.get_maas() * self.get_tecrube() / 100) / 2 + (self.__yipranma_payi * 10)
+            elif self.get_tecrube() > 4 and self.get_maas() < 25000:
+                return (self.get_maas() * self.get_tecrube() / 100) / 3 + (self.__yipranma_payi * 10)
+            else:
+                return 0
+        except Exception as e:
+            print("Hata-", str(e))
+    def get_yeni_maas(self):
+        return self.get_maas() + self.zam_hakki()
 
     def __str__(self):
-        return super().__str__() + f"Yıpranma Payı: {self.__yipranma_payi}\n"
+        yeni_maas = self.get_maas() + self.zam_hakki()
+        return f"Ad:{self.get_ad()}\nSoyad:{self.get_soyad()}\nTecrübe:{self.get_tecrube()}ay\nYeni Maaş:{yeni_maas} TL"
+
 
 
 

@@ -1,4 +1,8 @@
 from Insan import Insan
+from Issiz import Issiz
+from Calisan import Calisan
+from MaviYaka import MaviYaka
+from BeyazYaka import BeyazYaka
 
 insan1 = Insan("12345678910", "Ahmet", "Yılmaz", 30, "Erkek", "Türk")
 insan2 = Insan("98765432100", "Aliye", "Ata", 22, "Kadın", "Türk")
